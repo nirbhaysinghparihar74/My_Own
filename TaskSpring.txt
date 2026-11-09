@@ -1,0 +1,404 @@
+================
+## task-1
+================
+
+package SpringCore.Assingment;
+
+public class Assingment1 {
+
+	int employeeId;
+	String employeeName;
+	int employeeSalary;
+	
+	public void setEmployeeId(int employeeId) {
+		this.employeeId = employeeId;
+	}
+	public void setEmployeeName(String employeeName) {
+		this.employeeName = employeeName;
+	}
+	public void setEmployeeSalary(int employeeSalary) {
+		this.employeeSalary = employeeSalary;
+	}
+	
+	public void display()
+	{
+		System.out.println("EmpId :"+employeeId);
+		System.out.println("EmpName :"+employeeName);
+		System.out.println("Empsalary :"+employeeSalary);
+	}
+
+}
+
+package SpringCore.Assingment;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Assingment1_Main {
+
+	 public static void main(String[] args) {
+		
+		 ApplicationContext context = new ClassPathXmlApplicationContext("Assingment1.xml");
+		 
+	}
+}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+       <bean id="assing" class="SpringCore.Assingment.Assingment1" init-method="display">
+       
+       <property name="employeeId" value="101"></property>
+       <property name="employeeName" value="keshu singh"></property>
+       <property name="employeeSalary" value="50000"></property>
+       
+       
+       </bean>
+       
+       
+       
+       
+       
+       </beans>  
+       
+=======================
+       ## task-2
+=======================
+
+package SpringCore.Assingment;
+
+public class Assingment2 {
+
+	int employeeId;
+	String employeeName;
+	int employeeSalary;
+	
+	public Assingment2(int employeeId, String employeeName, int employeeSalary) {
+		
+		this.employeeId = employeeId;
+		this.employeeName = employeeName;
+		this.employeeSalary = employeeSalary;
+	}
+	
+	public void display()
+	{
+		System.out.println("empid :"+employeeId);
+		System.out.println("empname :"+employeeName);
+		System.out.println("empsalary :"+employeeSalary);
+	}
+}
+
+package SpringCore.Assingment;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Assingment2_Main {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("Assingment2.xml");
+		
+   	   
+   	    
+  
+	}
+}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+       <bean id="assingment" class="SpringCore.Assingment.Assingment2" init-method="display">
+       
+      <constructor-arg value="101"></constructor-arg>
+      <constructor-arg value="nirbahy singh"></constructor-arg>
+      <constructor-arg value="50000"></constructor-arg>
+       
+       
+       </bean>
+     
+       
+       </beans>  
+       
+=================
+ ## task-3       
+=================
+
+package SpringCore.Assingment;
+
+import java.util.Objects;
+
+public class Assingment3 {
+
+	private int rollnumber;
+	private String StudentName;
+	private String course;
+	
+
+	public void setRollnumber(int rollnumber) {
+		this.rollnumber = rollnumber;
+	}
+	
+	public void setStudentName(String studentName) {
+		StudentName = studentName;
+	}
+	
+	public void setCourse(String course) {
+		this.course = course;
+		
+	}
+	
+	public int getRollnumber() {
+		return rollnumber;
+	}
+
+	public String getStudentName() {
+		return StudentName;
+	}
+
+	public String getCourse() {
+		return course;
+	}
+	
+	@Override
+	public String toString() {
+		return "Assingment3 [rollnumber=" + rollnumber + ", StudentName=" + StudentName + ", course=" + course + "]";
+	}
+
+
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(StudentName, course, rollnumber);
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Assingment3 other = (Assingment3) obj;
+		return Objects.equals(StudentName, other.StudentName) && Objects.equals(course, other.course)
+				&& rollnumber == other.rollnumber;
+	}
+}
+
+package SpringCore.Assingment;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Assingment3_Main {
+
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("Assingment3.xml");
+		
+		Assingment3 bean = context.getBean(Assingment3.class);
+		
+		boolean equals = bean.equals(bean);
+		
+		if(bean.getStudentName()!=null&&bean.getRollnumber()!=0&&bean.getCourse()!=null)
+		{
+			System.out.println("All the inctance variable value are injected");
+		}
+		else
+		{
+			System.out.println("inctance variable are not injected");
+		}
+		
+		System.out.println(bean);
+   } 
+
+}
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+       <bean id="assingment" class="SpringCore.Assingment.Assingment3">
+       
+      
+       
+       </bean>
+       
+       
+       
+       </beans>
+
+==================
+## task-5
+==================
+
+package SpringCore.Assingment;
+
+public class Assingment5_moter {
+	
+	int motorId;
+	String motorType;
+   // String ToyCar;
+    
+	public void setMotorId(int motorId) {
+		this.motorId = motorId;
+	}
+	
+	public void setMotorType(String motorType) {
+		this.motorType = motorType;
+	}
+
+	@Override
+	public String toString() {
+		return "Assingment5_moter [motorId=" + motorId + ", motorType=" + motorType + "]";
+	}
+	
+//	public void setToyCar(String toyCar) {
+//		ToyCar = toyCar;
+//	}
+    
+    
+}
+
+package SpringCore.Assingment;
+
+public class Assingment5_toys {
+
+	int toyCarId;
+	String toyCarBrand;
+	Assingment5_moter motor;
+    
+	
+	public void setToyCarId(int toyCarId) {
+		this.toyCarId = toyCarId;
+	}
+	public void setToyCarBrand(String toyCarBrand) {
+		this.toyCarBrand = toyCarBrand;
+	}
+	public void setMotor(Assingment5_moter motor) {
+		this.motor = motor;
+	}
+    
+	public void dispaly()
+	{
+		System.out.println("toycarId :"+toyCarId);
+		System.out.println("toycarBrand :"+toyCarBrand);
+		System.out.println("moter :"+motor);
+	}
+	
+    
+    
+}
+
+
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans
+       https://www.springframework.org/schema/beans/spring-beans.xsd">
+       
+       
+       
+       <bean id="Moter" class="SpringCore.Assingment.Assingment5_moter">
+       
+       <property name="motorId" value="101"></property>
+       <property name="motorType" value="electric moter"></property>
+      
+       
+       
+       </bean>
+       
+       <bean id="toys" class="SpringCore.Assingment.Assingment5_toys">
+       
+       <property name="toyCarId" value="101"></property>
+       <property name="toyCarBrand" value="suzuki"></property>
+       <property name="motor" ref="Moter"></property>
+       
+       </bean>
+      
+       
+       
+       </beans>
+
+package SpringCore.Assingment;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class Assingment5_Main {
+
+	@SuppressWarnings("resource")
+	public static void main(String[] args) {
+		
+		ApplicationContext context = new ClassPathXmlApplicationContext("Assingment5.xml");
+		    Assingment5_toys bean=context.getBean("toys",Assingment5_toys.class);
+	              bean.dispaly();
+	}
+}
+
+
+private String query1="select Ename, Epwd from EmployeeRegistration";
+	
+    private String query2="select * from EmployeeRegistration";
+    
+    private String query3="update EmployeeRegistration set Address=?,Mail=? where Ename =?";
+
+	
+	void update() throws SQLException
+	{
+		App11 obj = new App11();
+		Connection con = obj.connect();
+		
+        PreparedStatement pstm1 = con.prepareStatement(query2);
+		
+		ResultSet rs1 = pstm1.executeQuery(query2);
+		
+		while(rs1.next())
+		{
+			System.out.println(rs1.getString(1)+"---"+rs1.getString(2)+"---"+rs1.getString(3)+"---"+rs1.getString(4)+"---"+rs1.getString(5)+"---"+rs1.getLong(6));
+		}
+		
+		PreparedStatement pstm2 = con.prepareStatement(query3);
+		
+		System.out.println("which person to update pls provide name");
+		String ename=sc.next();
+		
+		System.out.println("Enter the address");
+		String adr=sc.next();
+		
+		System.out.println("Enter the mail");
+		String mail=sc.next();
+		
+		pstm2.setString(1,adr);
+		pstm2.setString(2, mail);
+
+		pstm2.setString(3,ename);
+		
+		int update = pstm2.executeUpdate();
+		
+		System.out.println("UPDATE DATA !!!!!!");
+	}
+	
+	public static void main(String[] args) throws Exception {
+		
+		Registration registration = new Registration();
+		//registration.insert();
+		registration.login();
+		registration.update();
+		
+	}
