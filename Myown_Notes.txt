@@ -1,0 +1,369 @@
+Designed by keshu parihar
+=========================
+core java & fundamentals
+=========================
+============================================================================================================================================
+My name is nirbhay singh Parihar. i am from to satna Madhya Pradesh coming to my education i have completed my btech in computer science enginnering
+from technocrats institute of technologies science Bhopal.coming to my technical skill i have good knowledge about core java,adv-java & oracle database and 
+currently i am learning spring & spring boot.i have good knowledge about object oriented programming concept and exception handling .
+i have basic knowledge about data structure and algorithm 
+
+coming to my project I developed a metro ticket generator using core java ,jdbc and storing the ticket detailes in oracle database
+in my second project i have developed admin customer management using core java,jdbc servlet,jsp and implementing CRUD operation 
+for customer and product management in this project i am using apache tomcat server
+==============================================================================================================================================
+0) Why is Java not a purely Object-Oriented language?
+
+Ans) Java is not considered a purely Object-Oriented Programming (OOP) language mainly because Java has primitive data types that are not objects.
+Java has 8 primitive types:
+
+byte
+short
+int
+long
+float
+double
+char
+boolean
+
+0) Why Java?
+
+Ans) Java is object-oriented, platform-independent, secure, and widely used for backend development.
+
+1) Explain the four piller of oops with java example ?
+
+Ans) Encapsulation,inheritance,polymorphism,abstraction
+   
+Encapsulation=>it is the process the making the field as private and providing the those filed as public method through setter method and getter method.
+
+class Student {
+    private String name;
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
+    }
+}
+
+Inheritance=>Acquiring the property of one class into another class. In-order to achieve inheritance we need to use either extends or implement keyword.   (there are five type of inheritance)
+1)single level inheritance
+2)multi level inheritance
+3)Hierarchal inheritance
+4)hybrid inheritance
+5)multiple inheritance
+
+class Animal {
+    void eat() {
+        System.out.println("Animal eats");
+    }
+}
+
+class Dog extends Animal {
+    void bark() {
+        System.out.println("Dog barks");
+    }
+}
+
+Polymorphism=>Polymorphism means it is an ability to perform multiple task with the same identity is know as polymorphism.
+(there are two type of polymorphism)
+1)compile time polymorphism means method overloading
+2)run time polymorphism means method overriding
+
+class Animal {
+    void sound() {
+        System.out.println("Animal sound");
+    }
+}
+
+class Dog extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Dog barks");
+    }
+}
+
+class Cat extends Animal {
+    @Override
+    void sound() {
+        System.out.println("Cat meows");
+    }
+}
+
+Abstration=>It is the process the hiding the implementation details from the user and showing the necessary details form the users.
+Ex ::bike,engine,radio.
+
+abstract class Vehicle {
+
+    abstract void start();
+
+    void stop() {
+        System.out.println("Vehicle stopped");
+    }
+}
+
+class Car extends Vehicle {
+
+    @Override
+    void start() {
+        System.out.println("Car starts with key");
+    }
+}
+
+2) why is java called platform independent ? what is role does the JVM play ?
+
+Ans) Java is platform independent because Java source code is compiled into platform-independent bytecode, and the JVM converts/executes that bytecode according to the underlying platform.
+
+Remember:
+Java = Platform Independent
+JVM = Platform Dependent
+Bytecode = Platform Independent
+
+3) What is the difference between == and equals() ?
+
+Ans) == checks whether two primitive value are equals or whether two object reference point to the same object is know as double operator.
+     .equals() is a method present is object class and equals method check whether two object are logically content wise equals than equals method return true other wise false.
+
+String a = new String("java");
+String b = new String("java");
+ 
+System.out.println(a == b);        // false -> different objects in heap
+System.out.println(a.equals(b));   // true  -> same content
+ 
+String c = "java";
+String d = "java";
+System.out.println(c == d);        // true -> both point to same string-pool literal
+
+4) What is difference between string ,string buffer and string builder ?
+
+Ans) String is immutable, which means once a String object is created, its value cannot be changed.
+ 
+String Buffer are mutable, meaning their values can be modified without creating a new object and string buffer is synchronized and thread safe. 
+
+String builder are mutable,meaning their values can be modified without creating a new object and StringBuilder is not synchronized and not thread-safe but is faster than String Buffer.
+
+5) Explain method overloading and method overriding ?
+
+Ans) write two or more method in the same class with the same name but with different parameter is called method overloading it is also know as early binding and compile time polymorphism.
+
+write two or more method is two different class but same method name same parameter same return type is called method overriding it is also know as late binding and run time polymorphism.
+
+6) What are access modifier in java ?
+
+Ans) private: accessible only within the same class.
+
+default (no modifier / package-private): accessible only within the same package.
+
+protected: accessible within the same package, plus subclasses in other packages.
+
+public: accessible from anywhere. 
+
+7) What is the difference between abstract class and an interface ?
+
+Ans) An abstract class is a class that can contain both abstract and concrete methods but can not be create a object for abstract class.
+  
+Interface is not a class it is a blue print of a class inside an interface every variable by default public static final and every method by default public abstract and can not be create a object in interface.
+
+8) what is the purpose of final keyword ?
+
+Ans) final variable: its value cannot be reassigned once the value is initialized (final is always complie time constant).
+
+final method: final method cannot be overridden by a subclass.
+
+final class: final class cannot be extended means can not be inherite . (e.g., the String class is final).
+
+8.1) What is error?
+
+Ans)If there is an error in our program we will not able to execute the code 100% resolve the error . otherview compile time error.
+There are 3 type of error
+-compile time
+-runtime error
+-logical error
+
+8.2) What is exception ?
+
+Ans)if there is an exception in our program we will able to save our program. we will handle exceptions by using try,catch ,finally blocks.
+(there are two type of exception)
+1)checked exception
+2)unchecked exception
+
+9) What is Exception handling ? how many type of exception ?
+
+Ans) Exception handling means not removing any exception and not resolving any exception.we can provide an alternative way to continue program execution.
+
+Checked exception=>The exception which are detected at compile time by the java compiler are know as checked exception.and checked exception is know as a recoverable exception because we must write try and catch blocks
+                   EX::file-not-found exception,class-not-found exception.
+
+Unchecked exception=>The exception which are detected at run time by the JVM are know as Unchecked exception.unchecked exception is know as a non-recoverable exception
+                   Ex::null-pointer exception,index-outoff-bound exception.
+
+10) What is the difference between throw and throws keyword ?
+
+Ans) Throw keyword is mainly used for user define message exception.and we can you throw keyword both checked and unchecked exception.
+
+Throws keyword is mainly used for escaping the exception.and we can use throws keyword mainly checked exception.
+
+11) What is garbage collection ?
+ 
+Ans) Garbage collection is done by the garbage collector.garbage collection is a demon thread (it is a low priority thread).garbage collector is going to use mark and swap algorithm to destroy unused and unreferance object from heap area.
+
+12) What is the difference between HashMap HashTable and concurrent hash-map ?
+
+Ans) HashMap is introduced in java 1.2 version onwards. HashMap is not sysnchronized .it is not thread safe and allow one null key and multipe null value are allowed .
+
+Hashtable is introduced in java 1.0 version onward it is a legacy class. HashTable is sysnchronized .it is thread safe and does not allow null key and null value.
+
+ConcurrentHashMap is introduced in java 1.5 version onwards and concurrent hashmap is a sysnchronized it is a thread safe concurrent hashmap is used to designed multi thread application and does not allow null key and value. 
+
+13) what is the difference between arraylist and linkedlist  ?
+
+Ans) Arraylist is introduced in java 1.2 version onwards and default capacity is 10 and size increase by half and arraylist allowed duplicate and insertion order is maintaine.and arraylist is faster than to linkedlist.because arraylist is accessd by indexing based .
+
+LinkedList is introduced in java 1.2 version onwards and default capacity is 0 but size increase by double and linkedlist allowed duplicate and insertion order is maintain and linkedlist is slower but linkedlist insertion and deleteion is faster because linkedlist follow doubly-linkedlist (previous and next)
+
+14) Explain the static keyword variable methods block and nested classes ?
+
+Ans) variable=> A static variable is a class-level variable shared among all objects of the class.
+method=> A static method belongs to the class and can be called using the class name without creating an object.
+
+==========================================================================
+A static method cannot directly access non-static instance variables or methods.
+
+class Demo {
+    int x = 10;
+
+    static void show() {
+        // System.out.println(x); // ❌ Error
+    }
+}                                                              Example:
+=========================================================================
+static block=> A static block is executed once when the class is loaded and is mainly used for static initialization.
+static nested class=> A class declared with static inside another class is called a static nested class.
+=========================================================================
+class Outer {
+
+    static class Inner {
+
+        void display() {
+            System.out.println("Hello from Inner class");
+        }
+    }
+
+    public static void main(String[] args) {
+
+        // Create Inner class object
+        Outer.Inner obj = new Outer.Inner();
+
+        obj.display();
+    }
+}
+========================================================================== 
+
+15) what is static method in interface?
+
+Ans) A static method in an interface is a method that belongs to the interface itself, not to the implementing class or object and static method can not override in to another class.
+
+16) What is functional interface?
+
+Ans) Functional interface is introduced in java 8 version onward and functional interface contain only one abstract method we can write a multiple static method and multiple default method and functional interface it is mainly used for lambda expression.
+
+17) What is lambda expression?
+
+Ans) Lambda expression is introduced in java 8 version onward and lambda expression implemented functional interface and using the lambda expression in our program lots of line of code decress.because the lambda expression reduce the boiler plat code in our application.
+
+16) What is JDK,JRE and JVM?
+
+Ans) JDK means java development kit is used to develop java application is know as java development kit.
+     JRE means java runtime environment is used to run java application is know as java runtime environment.
+     JVM means java virtual machine is responsible to execute java bytecode is know as java virtual machine.
+
+17) what is multitasking?
+
+Ans) it is the process of performing multiple task simultaneously at the same by a single processor in order to optimization the utilization of cpu.
+
+18) What is multi threading?
+
+Ans) A thread is a smallest unit of the process.atleast one process is required to create a thread and thread share same address location is know as multi threading.
+
+
+ 
+
+==========================================================================================================================================================
+
+1. What is an Operating System?
+An OS is system software that manages hardware & CPU, memory, files, and processes and provides services to applications.
+
+2. What is the OSI model?
+The OSI model has 7 layers:
+
+Application
+Presentation
+Session
+Transport
+Network
+Data Link
+Physical
+
+3. What is an IP address?
+An IP address identifies a device/interface on an IP network.
+
+4. What is DBMS?
+A DBMS is software used to store, organize, retrieve, and manage data in databases.
+
+5. What is a primary key?
+A primary key uniquely identifies each record in a table and cannot contain NULL values.
+
+6. What is a pointer in C?
+A pointer is a variable that stores the memory address of another variable.
+
+int a = 10;
+int *p = &a;
+
+7. What is an embedded system?
+An embedded system is a computer system designed to perform a specific function within a larger device.
+
+Examples:
+
+Router
+Smart TV
+Car ECU
+Washing machine
+Set-top box
+
+8. what is Linux?
+Linux is an open-source operating system. It is widely used in embedded systems because its provide networking process management system.
+
+9. What is Apache Tomcat?
+Apache Tomcat is a web server is used to run web applications.
+
+
+=====================================================================================================================
+SPRING CORE IMPORTANT QUESTION AND ANSWER
+=====================================================================================================================
+1) What is spring core?
+
+Ans)Any java class whose life-cycle managed by IOC Container is called as spring bean.
+(we can represent java class as spring bean in 2 ways)
+--Xml approach
+--Annotation approach
+
+2) What is IOC Container?
+
+Ans)IOC stands for inversion of control.IOC container is responsible for dependency injection in spring application and spring bean life cycle managed by IOC container.
+(Advantage of IOC container)
+--Performance dependency injection
+--Reduce manual object creation
+--Easier maintenance 
+
+3) HOw to start IOC container?
+
+Ans)There are two type to start IOC container.
+--Bean factory==>Lazy loading means creating object for spring bean when we call getBean() method
+--Application context==>Eager loading means creating object for spring bean when IOC container start.
+
+
+
+
+   
